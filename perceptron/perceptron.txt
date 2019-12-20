@@ -1,0 +1,30 @@
+import random
+
+def perceptron():
+    weight1=round(random.uniform(-0.5,0.5),1)
+    weight2=round(random.uniform(-0.5,0.5),1)
+    weight0=round(random.uniform(-0.5,0.5),1)
+
+    x0=-1
+    @=0.01
+    flage=true
+    output=1
+    
+    dataset=((0,0,0),(1,0,0),(0,1,0),(1,1,1))
+    while(flage==true):
+        flage=false
+        for examp in dataset:
+            sum=(dataset[0]*weight1)+(dataset[1]*weight2)
+            theeta=weight0*x0
+            if(sum+theeta>=0):
+                output=1
+            else:
+                output=0
+            if((output-examp[2])!=0):
+                 weight1=round(weight1+(@*(examp[2]-output)*examp[0]),1)   
+                weight2=round(weight2+(@*(examp[2]-output)*examp[1]),1)   
+                weight0=round(weighto+(@*(examp[2]-output)*x0),1)   
+                flage=True
+    return (weight1,weight2,weight0)
+
+
